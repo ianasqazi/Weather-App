@@ -4,9 +4,51 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Find Weather</title>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel = "stylesheet" type = "text/css" href = "../Weather-App/assets/css/style.css">
+    
+    <script src="../Weather-App/assets/script/moment.js"></script>
+
+    <script src="../Weather-App/assets/script/script.js"></script>
+    <title>Weather APP - Anas</title>
 </head>
 <body>
-    
+    <nav class="navbar navbar-dark bg-dark d-flex justify-content-center">
+        <a class="navbar-brand" href="#">Weather-App</a>
+    </nav>
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-3 bg-dark flex-sm-column" id="sidebar">
+                <input class="form-control" id="searchCity">
+                <input class="btn btn-primary btn-block" id="searchCityBtn" value="Search City">
+
+                <ul class="list-group text-center" id="citiesList">
+                        <li class="list-group-item">Austin</li>
+                        <li class="list-group-item">Chicago</li>
+                        <li class="list-group-item">New York</li>
+                        <li class="list-group-item">Orlando</li>
+                        <li class="list-group-item">Seattle</li>
+                        <li class="list-group-item">Denver</li>
+                        <li class="list-group-item">Atlanta</li>
+                </ul>
+
+            </div>
+            <div class="col container-fluid bg-light" id="main">
+               
+                <div class="container-fluid" id="currentWeather">
+                </div>
+                
+                <div id="forcast">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut magnam, quasi maiores saepe a ad minima exercitationem assumenda in fuga accusantium qui mollitia molestiae culpa placeat repudiandae itaque? Facilis, possimus.
+                </div>
+
+            </div>
+        </div>
+    </div>
+
 </body>
 </html>
+
