@@ -1,15 +1,11 @@
 $(document).ready(function(){
 
-  // var currentCity = "Toronto";
-  // var currentDate = moment().format("MMMM Do YYYY");
-  // var currentDay = moment().format("dddd");
-
-  $("#currentWeather").append("<div id=cityIconBlock><span id=currentCity> Toronto </span> <img id=icon alt=logo></div>");
-  $("#currentWeather").append("<p id=dayDate></>");
-  $("#currentWeather").append("<p id=currentTemp>Temp</>");
-  $("#currentWeather").append("<p id=currentHumidity>H</>");
-  $("#currentWeather").append("<p id=currentWindSpeed>S</>");
-  $("#currentWeather").append("<p id=currentUV>U</>");
+  $("#currentWeather").append("<div id=cityIconBlock><span id=currentCity></span><img id=icon alt=logo></div>");
+  $("#currentWeather").append("<p id=dayDate></p>");
+  $("#currentWeather").append("<p id=currentTemp></p>");
+  $("#currentWeather").append("<p id=currentHumidity></p>");
+  $("#currentWeather").append("<p id=currentWindSpeed></p>");
+  $("#currentWeather").append("<p id=currentUV></p>");
 
   callAPI();
 
@@ -28,18 +24,33 @@ function callAPI(){
     method: "GET"
     }).then(function(response) {
     $("#currentCity").text(currentCity);
+    
+    var iconCode=response.weather[0].icon;
+    var iconURL="http://openweathermap.org/img/w/"+iconCode+".png";
+    $("#icon").attr("src",iconURL);
+
+    $("#currentWindSpeed").text("Wind Speed : " + response.wind.speed);
     $("#dayDate").text(currentDay+ ", " + currentDate);
+    $("#currentWindSpeed").text("Wind Speed : " + response.wind.speed);
     $("#currentTemp").text("Tempreture (C) : " + response.main.temp);
     $("#currentHumidity").text("Humidity : " + response.main.humidity);
     $("#currentWindSpeed").text("Wind Speed : " + response.wind.speed);
-    
-        // $(".wind").text("Wind Speed: " + response.wind.speed);
-        // $(".humidity").text("Humidity: " + response.main.humidity);
-        // $(".temp").text("Temperature (F) " + response.main.temp);
-      // console.log(queryURL);
-      console.log(response);
-    });
-}
+
+
+      var latValue=(response.coord.lat);
+      var lonValue=response.coord.lon;
+      var queryUrlUV="http://api.openweathermap.org/data/2.5/uvi?appid="+APIKey+"&lat="+ latValue + "&lon=" + lonValue;
+        $.ajax({
+          url: queryUrlUV,
+          method: "GET"
+          }).then(function(response) {      
+          $("#currentUV").text("UV Index : " + response.value);
+        });
+
+  });
+
+
+  }
 
 
 // 
