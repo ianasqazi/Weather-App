@@ -64,4 +64,12 @@
     color: white;
 }
 
+#day1, #day2, #day3, #day4, #day5{
+    color:#fff;
+    background-color:#007bff;
+    border-color:#007bff;
+    margin: 5px;
+    align-content: center;
+}
+
 
