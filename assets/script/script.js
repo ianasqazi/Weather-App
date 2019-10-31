@@ -1,5 +1,6 @@
 $(document).ready(function(){
 
+
   $("#currentWeather").append("<div id=cityIconBlock><span id=currentCity></span><img id=icon alt=logo></div>");
   $("#currentWeather").append("<p id=dayDate></p>");
   $("#currentWeather").append("<p id=currentTemp></p>");
@@ -13,8 +14,21 @@ $(document).ready(function(){
   else{
     $("#searchCity").val(localStorage.getItem("lastSearchedCity"));
   };
+
   callAPI();
+
+  $("li").click(function(){
+    var cityName=this.innerHTML
+    console.log(cityName);
+    $("#searchCity").val(cityName);
+    callAPI();
 });
+
+});
+
+
+
+
 
 function callAPI(){
   var currentDate = moment().format("MMMM Do YYYY");
@@ -80,21 +94,23 @@ function callAPI(){
           // Third API call to get forcast using values from response 1st API call
               var cityID=response.id;
               var queryURLForcast="http://api.openweathermap.org/data/2.5/forecast?appid="+APIKey+"&units=metric&id="+cityID;
-              console.log(queryURLForcast);
             
               $.ajax({
                 url: queryURLForcast,
                 method: "GET"
                 }).then(function(response) { 
                   $("#forcast").empty();
-                  $("#forcast").append("<div class=row id=forcastBlock></div>")
+                  $("#forcast").append("<div id=forcastBlock></div>");
+                  $("#forcastBlock").addClass("row text-center");
+                  
                   for(i=1,j=0; i<=5; i++){
 
                     $("#forcastBlock").append("<div class=col id=day"+i+"></div>");
-                    $("#day"+i).append("<p id=forcastDate"+i+">p</p>");
+                    $("#day"+i).append("<p id=forcastDate"+i+"></p>");
                     $("#day"+i).append("<img id=iconForcast"+i+" "+"alt=weatherLogo></img>");
-                    $("#day"+i).append("<p id=forcastTemp"+i+">p</p>");
-                    $("#day"+i).append("<p id=forcastHumidity"+i+">p</p>");
+                    $("#day"+i).append("<p id=forcastTemp"+i+"></p>");
+                    $("#day"+i).append("<p id=forcastHumidity"+i+"></p>");
+                    $("#day"+i).append("<p id=forcastWindSpeed"+i+"></p>");
 
                     $("#forcastDate"+i).text(response.list[j].dt_txt);
 
@@ -104,6 +120,8 @@ function callAPI(){
 
                     $("#forcastTemp"+i).text("Temp : " + response.list[j].main.temp + " " + String.fromCharCode(176) + "C");
                     $("#forcastHumidity"+i).text("Humidity : " + response.list[j].main.humidity + " %");
+                    $("#forcastWindSpeed"+i).text("Wind : " + response.list[j].wind.speed + " m/s");
+
                     j=j+8;
 
                   }

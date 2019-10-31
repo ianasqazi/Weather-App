@@ -10,7 +10,6 @@
     <link rel = "stylesheet" type = "text/css" href = "../Weather-App/assets/css/style.css">
     
     <script src="../Weather-App/assets/script/moment.js"></script>
-    <!-- <script src="../Weather-App/assets/script/city.list.json"> -->
     <script src="../Weather-App/assets/script/script.js"></script>
     <title>Weather APP - Anas</title>
 </head>
@@ -22,17 +21,22 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-3 bg-dark flex-sm-column" id="sidebar">
-                <textarea class="form-control" type="text" id="searchCity" rows="1">Toronto</textarea>
+                <textarea class="form-control text-center" type="text" id="searchCity" rows="1">Toronto</textarea>
                 <button class="btn btn-primary btn-block" id="searchCityBtn" onclick="callAPI()">Search City</button>
-
+                <br>
                 <ul class="list-group text-center" id="citiesList">
-                        <li class="list-group-item">Austin</li>
-                        <li class="list-group-item">Chicago</li>
+                        <li class="list-group-item">Copenhagen</li>
+                        <li class="list-group-item">Monte Carlo</li>
+                        <li class="list-group-item">Mumbai</li>
+
                         <li class="list-group-item">New York</li>
-                        <li class="list-group-item">Orlando</li>
+                        <li class="list-group-item">Quebec</li>
+
+                        <li class="list-group-item">Riyadh</li>
                         <li class="list-group-item">Seattle</li>
-                        <li class="list-group-item">Denver</li>
-                        <li class="list-group-item">Atlanta</li>
+                        <li class="list-group-item">Tokyo</li>
+                        <li class="list-group-item">Vancouver</li>
+                        <li class="list-group-item">Vienna</li>
                 </ul>
 
             </div>
@@ -40,7 +44,7 @@
                
                 <div class="container-fluid" id="currentWeather">
                 </div>
-                
+                <br>
                 <div class="container-fluid" id="forcast">
                 </div>
 
