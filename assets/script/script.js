@@ -62,7 +62,7 @@ function callAPI(){
           var iconCode=response.weather[0].icon;
 
           // Appending the image URL to display 
-          var iconURL="http://openweathermap.org/img/w/"+iconCode+".png";
+          var iconURL="https://openweathermap.org/img/w/"+iconCode+".png";
           $("#icon").attr("src",iconURL);
           $("#dayDate").text(currentDay+ ", " + currentDate);
 
@@ -76,7 +76,7 @@ function callAPI(){
             var latValue=(response.coord.lat);
             var lonValue=response.coord.lon;
             
-            var queryURLUV="http://api.openweathermap.org/data/2.5/uvi?appid="+APIKey+"&lat="+ latValue + "&lon=" + lonValue;
+            var queryURLUV="https://api.openweathermap.org/data/2.5/uvi?appid="+APIKey+"&lat="+ latValue + "&lon=" + lonValue;
               $.ajax({
                 url: queryURLUV,
                 method: "GET"
@@ -113,7 +113,7 @@ function callAPI(){
           // Third API call to get forcast using values from response 1st API call : Input - city ID
 
               var cityID=response.id;
-              var queryURLForcast="http://api.openweathermap.org/data/2.5/forecast?appid="+APIKey+"&units=metric&id="+cityID;
+              var queryURLForcast="https://api.openweathermap.org/data/2.5/forecast?appid="+APIKey+"&units=metric&id="+cityID;
             
               $.ajax({
                 url: queryURLForcast,
@@ -137,7 +137,7 @@ function callAPI(){
                     $("#forcastDate"+i).text(response.list[j].dt_txt);
 
                     var iconCode=response.list[j].weather[0].icon;
-                    var iconURL="http://openweathermap.org/img/w/"+iconCode+".png";
+                    var iconURL="https://openweathermap.org/img/w/"+iconCode+".png";
                     $("#iconForcast"+i).attr("src",iconURL);
 
                     $("#forcastTemp"+i).text("Temp : " + response.list[j].main.temp + " " + String.fromCharCode(176) + "C");
