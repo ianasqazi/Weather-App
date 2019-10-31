@@ -19,7 +19,6 @@ $(document).ready(function(){
 
   $("li").click(function(){
     var cityName=this.innerHTML
-    console.log(cityName);
     $("#searchCity").val(cityName);
     callAPI();
 });
@@ -50,7 +49,7 @@ function callAPI(){
           $("#icon").attr("src",iconURL);
           $("#dayDate").text(currentDay+ ", " + currentDate);
 
-          $("#currentTemp").text("Tempreture (C) : " + response.main.temp + " " + String.fromCharCode(176) + "C");
+          $("#currentTemp").text("Tempreture : " + response.main.temp + " " + String.fromCharCode(176) + "C");
           $("#currentHumidity").text("Humidity : " + response.main.humidity + " %");
           $("#currentWindSpeed").text("Wind Speed : " + response.wind.speed + " m/s");
 
