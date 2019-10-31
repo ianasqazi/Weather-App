@@ -1,0 +1,98 @@
+/* hello */
+
+/* Styling for Sidebar */
+.navbar-brand{
+    font-family: 'Abel', sans-serif;
+    font-size: 50px;
+    font-weight: bolder;
+    color: #007bff !important;
+}
+
+#sidebar{
+    max-width: 30%;
+    font-family: 'Abel', sans-serif;
+    
+}
+
+#searchCityBtn{
+    border-radius: 2rem;
+    margin : 3px 3px 3px 3px;
+}
+
+#citiesList{
+    margin-bottom:10px;
+}
+
+/* Styling for Main Body section */
+
+#results{
+    height: auto;
+}
+
+
+#currentWeather{
+    border-style: solid;
+    margin-top:30px;
+    border-color: darkgrey;
+    font-family: 'Abel', sans-serif;
+
+}
+
+#currentCity{
+    font-size: 60px;
+}
+#icon{
+    height: 100px;
+    width: 100px;
+}
+
+
+/* Change colour according to UV index range */
+
+.fuschia{
+    background-color: fuchsia;
+    color: white;
+}
+
+.red{
+    background-color: red;
+    color: white;
+}
+
+.orange{
+    background-color: orange;
+    color: white;
+}
+
+.yellow{
+    background-color: yellow;
+    color: white;
+}
+
+.green{
+    background-color: green;    
+    color: white;
+}
+
+/* Styling for Forcast containers */
+
+#day1, #day2, #day3, #day4, #day5{
+    color:#fff;
+    background-color:#007bff;
+    border-color:#007bff;
+    margin: 5px;
+    align-content: center;
+    font-family: 'Abel', sans-serif;
+
+}
+
+/* Styling for footer */
+
+#footer{
+    color: white;
+    font-family: 'Abel', sans-serif;
+    color:#87b8ec;
+
+
+}
+
