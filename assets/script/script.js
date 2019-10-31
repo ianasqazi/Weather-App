@@ -29,6 +29,13 @@ $(document).ready(function(){
     callAPI();
 });
 
+  // Prevent default enter when clicked in text area of searchbox and execute funtion
+  $('#searchCity').keypress(function(event){
+    if (event.keyCode == 10 || event.keyCode == 13) 
+        event.preventDefault();
+        callAPI();
+  });
+
 });
 
 
