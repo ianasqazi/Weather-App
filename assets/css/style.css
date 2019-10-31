@@ -1,16 +1,17 @@
-/* * { background-color: rgba(255,0,0,.2); }
-* * { background-color: rgba(0,255,0,.2); }
-* * * { background-color: rgba(0,0,255,.2); }
-* * * * { background-color: rgba(255,0,255,.2); }
-* * * * * { background-color: rgba(0,255,255,.2); }
-* * * * * * { background-color: rgba(255,255,0,.2); }
-* * * * * * * { background-color: rgba(255,0,0,.2); }
-* * * * * * * * { background-color: rgba(0,255,0,.2); }
-* * * * * * * * * { background-color: rgba(0,0,255,.2); }
- */
+/* hello */
+
+/* Styling for Sidebar */
+.navbar-brand{
+    font-family: 'Abel', sans-serif;
+    font-size: 50px;
+    font-weight: bolder;
+    color: #007bff !important;
+}
 
 #sidebar{
     max-width: 30%;
+    font-family: 'Abel', sans-serif;
+    
 }
 
 #searchCityBtn{
@@ -22,6 +23,8 @@
     margin-bottom:10px;
 }
 
+/* Styling for Main Body section */
+
 #results{
     height: auto;
 }
@@ -31,16 +34,20 @@
     border-style: solid;
     margin-top:30px;
     border-color: darkgrey;
+    font-family: 'Abel', sans-serif;
+
 }
 
 #currentCity{
-    font-size: xx-large;
+    font-size: 60px;
 }
 #icon{
     height: 100px;
     width: 100px;
 }
 
+
+/* Change colour according to UV index range */
 
 .fuschia{
     background-color: fuchsia;
@@ -67,15 +74,25 @@
     color: white;
 }
 
+/* Styling for Forcast containers */
+
 #day1, #day2, #day3, #day4, #day5{
     color:#fff;
     background-color:#007bff;
     border-color:#007bff;
     margin: 5px;
     align-content: center;
+    font-family: 'Abel', sans-serif;
+
 }
+
+/* Styling for footer */
 
 #footer{
     color: white;
+    font-family: 'Abel', sans-serif;
+    color:#87b8ec;
+
+
 }
 
