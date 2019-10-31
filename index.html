@@ -10,7 +10,7 @@
     <link rel = "stylesheet" type = "text/css" href = "../Weather-App/assets/css/style.css">
     
     <script src="../Weather-App/assets/script/moment.js"></script>
-    <script src="../Weather-App/assets/script/city.list.json"></script>
+    <!-- <script src="../Weather-App/assets/script/city.list.json"> -->
     <script src="../Weather-App/assets/script/script.js"></script>
     <title>Weather APP - Anas</title>
 </head>
@@ -22,8 +22,8 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-3 bg-dark flex-sm-column" id="sidebar">
-                <input class="form-control" id="searchCity">
-                <input class="btn btn-primary btn-block" id="searchCityBtn" value="Search City">
+                <textarea class="form-control" type="text" id="searchCity" rows="1">Toronto</textarea>
+                <button class="btn btn-primary btn-block" id="searchCityBtn" onclick="callAPI()">Search City</button>
 
                 <ul class="list-group text-center" id="citiesList">
                         <li class="list-group-item">Austin</li>

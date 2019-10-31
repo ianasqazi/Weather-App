@@ -5,16 +5,15 @@ $(document).ready(function(){
   $("#currentWeather").append("<p id=currentTemp></p>");
   $("#currentWeather").append("<p id=currentHumidity></p>");
   $("#currentWeather").append("<p id=currentWindSpeed></p>");
-  $("#currentWeather").append("<p id=currentUV></p>");
+  $("#currentWeather").append("<div><span id=currentUV>UV Index : </span><span id=uvValue></span><div>");
 
   callAPI();
-
 })
 
 function callAPI(){
   var currentDate = moment().format("MMMM Do YYYY");
   var currentDay = moment().format("dddd");
-  var currentCity = "Toronto";
+  var currentCity = $.trim($("#searchCity").val());
 
   var APIKey = "b72c0d35aba9f0b8c0e9ebb9ec68c3f8";
   var queryURL = "https://api.openweathermap.org/data/2.5/weather?q=" + currentCity + "&units=metric&appid=" + APIKey;
@@ -24,18 +23,14 @@ function callAPI(){
     method: "GET"
     }).then(function(response) {
     $("#currentCity").text(currentCity);
-    
     var iconCode=response.weather[0].icon;
     var iconURL="http://openweathermap.org/img/w/"+iconCode+".png";
     $("#icon").attr("src",iconURL);
-
-    $("#currentWindSpeed").text("Wind Speed : " + response.wind.speed);
     $("#dayDate").text(currentDay+ ", " + currentDate);
-    $("#currentWindSpeed").text("Wind Speed : " + response.wind.speed);
-    $("#currentTemp").text("Tempreture (C) : " + response.main.temp);
-    $("#currentHumidity").text("Humidity : " + response.main.humidity);
-    $("#currentWindSpeed").text("Wind Speed : " + response.wind.speed);
 
+    $("#currentTemp").text("Tempreture (C) : " + response.main.temp + " " + String.fromCharCode(176) + "C");
+    $("#currentHumidity").text("Humidity : " + response.main.humidity + " %");
+    $("#currentWindSpeed").text("Wind Speed : " + response.wind.speed + " m/s");
 
       var latValue=(response.coord.lat);
       var lonValue=response.coord.lon;
@@ -43,36 +38,46 @@ function callAPI(){
         $.ajax({
           url: queryUrlUV,
           method: "GET"
-          }).then(function(response) {      
-          $("#currentUV").text("UV Index : " + response.value);
+          }).then(function(response) {  
+
+          $("#uvValue").text(response.value);
+          
+          var checkIndex=Math.round(response.value);
+          console.log(checkIndex);
+          if(checkIndex>=11){
+            $("#uvValue").attr("class","fuschia");
+          }
+          else if(checkIndex>=8 && checkIndex>=10){
+            $("#uvValue").attr("class","red");
+          }
+          else if(checkIndex>=7 && checkIndex>=6){
+            $("#uvValue").attr("class","orange");
+          }
+          else if(checkIndex>=5 && checkIndex>=3){
+            $("#uvValue").attr("class","yello");
+          }
+          else {
+            $("#uvValue").attr("class","green");
+          }
+
         });
 
   });
 
-
   }
+
+
 
 
 // 
 
+// if (angle >= 90 && angle <= 180) {
 
-
-
-// Preview details in the title 
-// map to point location 
-// can we find your current location ? 
-
-// Calling api and logging details 
-
-
-
-// Current weather to look like google current with forcast 
-
-
-
-
-// add sun and moon photo or time 
-
+/* Green	  Low	0 - 2
+Yellow	Moderate	3 - 5
+Orange	High	6-7
+Red	    Very High	8-10
+Fuschia	Extreme	11+ */
 
 // >>>>>> Requirements 
 
