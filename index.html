@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <!-- Load Libraries, Fonts and JavaScripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Abel&display=swap" rel="stylesheet">
+    <link rel = "stylesheet" type = "text/css" href = "../Weather-App/assets/css/style.css">
+    <script src="../Weather-App/assets/script/moment.js"></script>
+    <script src="../Weather-App/assets/script/script.js"></script>
+    
+    <title>Weather APP - UoT</title>
+</head>
+<body>
+
+    <!-- Header Section  -->
+    <nav class="navbar navbar-dark bg-dark d-flex justify-content-center">
+        <a class="navbar-brand" href="../Weather-App/index.html">&#8451; &#8467; &#33; M &Delta;</a>
+    </nav>
+
+    <!-- Body (Sidebar + weather information) -->
+    <div class="container-fluid">
+        <div class="row"> 
+            <!-- Sidebar -->
+            <div class="col-3 bg-dark flex-sm-column" id="sidebar">
+                <textarea class="form-control text-center" type="text" id="searchCity" rows="1">Toronto</textarea>
+                <button class="btn btn-primary btn-block" id="searchCityBtn" onclick="callAPI()">Search City</button>
+                <br>
+                <ul class="list-group text-center" id="citiesList">
+                        
+                        <li class="list-group-item">Amsterdam</li>
+                        <li class="list-group-item">Copenhagen</li>
+                        <li class="list-group-item">Monte Carlo</li>
+                        <li class="list-group-item">Mumbai</li>
+                        <li class="list-group-item">New York</li>
+                        <li class="list-group-item">Quebec</li>
+                        <li class="list-group-item">Riyadh</li>
+                        <li class="list-group-item">Seattle</li>
+                        <li class="list-group-item">Tokyo</li>
+                        <li class="list-group-item">Vancouver</li>
+                        <li class="list-group-item">Vienna</li>
+                        <li class="list-group-item">Zurich</li>
+                </ul>
+            </div>
+
+            <!-- Weather Info Section -->
+            <div class="col container-fluid" id="main">
+               
+                <div class="container-fluid bg-light" id="currentWeather">
+                </div>
+                <br>
+                <!-- weather Forcast Section -->
+                <div class="container-fluid" id="forcast">
+                </div>
+
+            </div>
+        </div>
+    </div>
+ 
+    <!-- Footer Section  -->
+    <div class="container-fluid text-right bg-dark" id="footer">
+        ianasqazi&reg;
+    </div>
+
+</body>
+</html>
+
