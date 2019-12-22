@@ -13,7 +13,7 @@ $(document).ready(function(){
   // Check if localStorage value of last searched exists to display results 
   // If NOT then show results of Toronto
   if(localStorage.getItem("lastSearchedCity") === null){
-    $("#searchCity").text("Toronto");
+    $("#searchCity").val("Toronto");
   }
   else{
     $("#searchCity").val(localStorage.getItem("lastSearchedCity"));
